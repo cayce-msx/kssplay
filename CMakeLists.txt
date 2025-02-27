@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.0)
+cmake_minimum_required(VERSION 3.7)
 project(libkss)
 
 # add_compile_definitions(EXCLUDE_DRIVER_ALL)
@@ -41,9 +41,16 @@ add_library(kss STATIC ${SOURCES})
 target_link_libraries(kss emu2149 emu2212 emu2413 emu8950 emu76489 kmz80)
 
 add_executable(kss2wav EXCLUDE_FROM_ALL example/kss2wav.c)
+
+find_package(SDL2 REQUIRED)
+add_executable(kssplayer EXCLUDE_FROM_ALL example/kss-sdl2-player.c)
+include_directories(kssplayer ${SDL2_INCLUDE_DIRS})
+
 if(NOT CMAKE_COMPILER_IS_GNUCC)
 	target_link_libraries(kss2wav kss)
+	target_link_libraries(kssplayer kss ${SDL2_LIBRARIES})
 else()
 	target_link_libraries(kss2wav kss m)
+	target_link_libraries(kssplayer kss m ${SDL2_LIBRARIES})
 endif()
 
