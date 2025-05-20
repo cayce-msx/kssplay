@@ -1,3 +1,9 @@
+# 1.2.1 (2024-08-28)
+- Update emu2149 to fix [issue 5](https://github.com/digital-sound-antiques/emu2149/issues/5).
+
+# 1.2.0 (2023-07-16)
+- Fix problem where playback rate is slightly faster Thanks to @gcielniak
+
 # 1.1.4 (2022-11-26)
 - Update emu2149 to fix [issue 4](https://github.com/digital-sound-antiques/emu2149/issues/4).
 
